@@ -16,4 +16,8 @@ public class Restaurant {
     public String toString(){
         return "name: " + name + " " + "price: " + price + " " + " numberOfStars: " + numberOfStars + ".";
     }
+
+    public void addReview(){
+        Review revOne = new this.name;
+    }
 }
