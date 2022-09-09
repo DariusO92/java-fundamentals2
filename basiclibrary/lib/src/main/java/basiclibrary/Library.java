@@ -3,6 +3,9 @@
  */
 package basiclibrary;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Random;
 
 public class Library {
@@ -52,6 +55,26 @@ public class Library {
    }
 
 
+    public static String tally (List<String> arr){
+        HashMap<String, Integer> votes = new HashMap<>();
+        int numberOfVotes = 0;
+        String won = "";
+
+        for (String vote : arr){
+            if (votes.containsKey(vote)){
+                votes.put(vote, votes.get(vote) + 1);
+            } else {
+                votes.put(vote, 0);
+            }
+            for (String candidate : arr){
+                if(votes.get(vote) > numberOfVotes){
+                    numberOfVotes = votes.get(vote);
+                    won = vote;
+                }
+            }
+        }
+        return won;
+    }
 
 }
 

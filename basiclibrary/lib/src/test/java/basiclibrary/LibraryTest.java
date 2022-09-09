@@ -4,11 +4,37 @@
 package basiclibrary;
 
 import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static basiclibrary.Library.tally;
 import static org.junit.jupiter.api.Assertions.*;
 
 class LibraryTest {
     @Test void someLibraryMethodReturnsTrue() {
         Library classUnderTest = new Library();
         assertTrue(classUnderTest.someLibraryMethod(), "someLibraryMethod should return 'true'");
+        tallyTest();
     }
+    @Test void  tallyTest(){
+        Library sut = new Library();
+        List<String> votes = new ArrayList<>();
+        votes.add("Bush");
+        votes.add("Bush");
+        votes.add("Bush");
+        votes.add("Shrub");
+        votes.add("Hedge");
+        votes.add("Shrub");
+        votes.add("Bush");
+        votes.add("Hedge");
+        votes.add("Bush");
+
+        String winner = tally(votes);
+        assert(winner.equals("Bush"));
+        System.out.println(winner + ""+"received the most!!");
+
+    }
+
+
 }
